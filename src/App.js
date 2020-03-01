@@ -1,11 +1,28 @@
 import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/hompage/homepage.component";
+
+const hatsPage = props => {
+  console.log(props);
+  return (
+    <div>
+      <h1>HATS PAGE </h1>
+    </div>
+  );
+};
+
+const hatsDetail = props => {
+  return <h1>Hats Detail {props.match.params.hatsId}</h1>;
+};
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/hats" component={hatsPage} />
+      </Switch>
     </div>
   );
 }
